@@ -1,0 +1,61 @@
+body {
+  background: #0B2434;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+.tenzies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tenzies-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+  width: 320px;
+  height: 320px;
+  padding: 33px;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #F5F5F5;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo {
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+button {
+  width: 92.16px;
+  height: 35.84px;
+  color: #FFF;
+  text-align: center;
+  font-family: Karla;
+  font-size: 16.384px;
+  font-weight: 700;
+  border: none;
+  background: #5035FF;
+  cursor: pointer;
+  border-radius: 3px;
+}
