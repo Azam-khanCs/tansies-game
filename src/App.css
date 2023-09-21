@@ -5,6 +5,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 
 }
 
@@ -54,15 +55,13 @@ button {
   font-size: 16.384px;
   font-weight: 700;
   border: none;
-  background: #5035FF;
   cursor: pointer;
   border-radius: 3px;
-  transition: all .2s ease-in-out;
 }
 
 button:active {
-  scale: .9;
-  background: #2b12ce;
+  scale: .8;
+  background: #0cb4ca;
 
 }
 
@@ -84,6 +83,17 @@ button:active {
   cursor: pointer;
 }
 
+.die-face:active {
+  scale: .8;
+}
+
 h2 {
   font-size: 2rem;
+}
+
+@media only screen and (max-width:768px) {
+  .tenzies-container {
+    width: 100%;
+    height: auto;
+  }
 }

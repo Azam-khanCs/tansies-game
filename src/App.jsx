@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 import './App.css'
 import Die from './components/Die'
 import { nanoid } from 'nanoid'
-import ConfettiExplosion from 'react-confetti-explosion';
-
-
+import Confetti from 'react-confetti'
+import useWindowSize from 'react-use/lib/useWindowSize'
+import { boolean, number } from '@storybook/addon-knobs';
 
 const App = () => {
 
   const [allDie, setAllDie] = useState(allNewDice())
   const [tenzies, setTenzies] = useState(false)
+
+  const btnStyle = {
+    backgroundColor: tenzies ? "#0bd737" : "#5035FF",
+  }
 
   React.useEffect(() => {
     const allHeld = allDie.every(die => die.isHeld)
@@ -62,10 +66,10 @@ const App = () => {
     else {
       setTenzies(false)
       setAllDie(allNewDice())
-
     }
-
   }
+
+  const { width, height } = useWindowSize()
 
   return (
     <div className='container'>
@@ -75,16 +79,36 @@ const App = () => {
 
           <h1>Tenzies</h1>
 
-          <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+          {tenzies ?
+            <h4>Congratulation you won the game please click the New Game Button to start new game thanks</h4>
+            :
+            <p>
+              Roll until all dice are the same. Click each die to freeze it at its current value between rolls. </p>}
           {
-            tenzies && <ConfettiExplosion />
+            tenzies && <Confetti
+              width={width}
+              height={height}
+              confettiSource={{
+                w: 20,
+                h: 20,
+                x: width / 2,
+                y: height / 2,
+              }}
+              run={boolean('Run', true)}
+              recycle={boolean('Recycle', true)}
+              numberOfPieces={number('# Pieces', 300, {
+                range: true,
+                min: 0,
+                max: 2000,
+                step: 10,
+              })}
+            />
           }
           <div className="die-container">
             {allDieElements}
           </div>
 
-
-          <button onClick={rollDice} >
+          <button style={btnStyle} onClick={rollDice} >
             {
               tenzies ? "New Game" : "Roll"
             }
